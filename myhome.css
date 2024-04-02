@@ -1,0 +1,103 @@
+body {
+  background-image: url(farm.jpeg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: 'Arial', sans-serif; /* Set a consistent font family */
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  padding: 20px;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  transition: background-color 0.3s ease; 
+}
+
+
+header:hover {
+  background-color: rgba(0, 0, 0, 0.6); 
+}
+
+
+header h1, header nav a {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+nav {
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+}
+
+nav li {
+  margin-right: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #4CAF50;
+}
+
+main {
+  text-align: center;
+  padding: 50px;
+}
+
+h1,h2, h3, p {
+  font-family: 'Arial', sans-serif; /* Set a consistent font family */
+  color: white; /* Lighter text color */
+}
+
+h1 {
+  font-family: 'Arial',sans-serif;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color:black
+}
+
+p {
+  color:white;
+  font-size: 16px;
+  line-height: 1.5; /* Set a consistent line height */
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 25px;
+}
+
+input[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  width: 100px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background-color: #45a049;
+}
