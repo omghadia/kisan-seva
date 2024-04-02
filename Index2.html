@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kisan Seva</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/first.css')}}">
+</head>
+<body>
+    <form action="form" method="post" id="cropForm">
+      <h2>Predict your crop</h2>
+      
+      <label for="Nitrogen">Nitrogen</label>
+  <input type="text" id="Nitrogen" name="Nitrogen" min="0" max="100" placeholder="Enter any value between 1-150" required>
+
+  <label for="Phosphorus">Phosphorus</label>
+  <input type="text" id="Phosphorus" name="Phosphorus" min="0" max="100" placeholder="Enter any value between 1-150" required>
+
+  <label for="Potassium">Potassium</label>
+  <input type="text" id="Potassium" name="Potassium" min="0" max="100" placeholder="Enter any value between 1-220" required>
+      
+      <label for="state">Select your state:</label>
+      <select id="state" name="state" onchange="setDefaultValues()">
+            <option value="Gujarat">Gujarat</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Assam">Assam</option>
+           
+      </select>
+
+      <label for="season">Select the season:</label>
+      <select id="season" name="season" onchange="setDefaultValues()">
+            <option value="Summer">Summer</option>
+            <option value="Winter">Winter</option>
+            <option value="Rainy">Rainy</option>
+           
+      </select>
+
+      <label for="Temperature">Temperature</label>
+  <input type="text" id="Temperature" name="Temperature" min="0" max="100" placeholder="Temperature in Degree Celcius between 15-40" required>
+
+  <label for="Humidity">Humidity</label>
+  <input type="text" id="Humidity" name="Humidity" min="0" max="100" placeholder="Relative Humidity in Percentage between 60-80" required>
+
+  <label for="ph">ph</label>
+  <input type="text" id="ph" name="ph" min="0" max="14" placeholder="ph between 0-14" required>
+
+  <label for="Rainfall">Rainfall</label>
+  <input type="text" id="Rainfall" name="Rainfall" placeholder="Rainfall in MM between 20-200" required min="0" max="10000">
+     
+      <input type="submit" id="submit" name="submit" value="Predict Your Crop">
+    </form>
+
+    <script>
+        function setDefaultValues() {
+            var state = document.getElementById('state').value;
+            var season = document.getElementById('season').value; // Retrieve selected season
+    
+            // Define default values for different states and seasons
+            var defaultValues = {
+                'Gujarat': {
+                    'Summer': { 'Temperature': 42, 'Humidity': 60, 'ph': 7.5, 'Rainfall': 20 },
+                    'Winter': { 'Temperature': 29, 'Humidity': 40, 'ph': 6, 'Rainfall': 74 },
+                    'Rainy': { 'Temperature': 27, 'Humidity': 80, 'ph': 4, 'Rainfall': 200 }
+                },
+                'Punjab': {
+                    'Summer': { 'Temperature': 45, 'Humidity': 36, 'ph': 8.5, 'Rainfall': 20 },
+                    'Winter': { 'Temperature': 10, 'Humidity': 30, 'ph': 7.5, 'Rainfall':  80},
+                    'Rainy': { 'Temperature': 20, 'Humidity': 82, 'ph': 6.5, 'Rainfall': 220 }
+                },
+                'Kerala': {
+                    'Summer': { 'Temperature': 36, 'Humidity': 80, 'ph': 5.5, 'Rainfall': 135 },
+                    'Winter': { 'Temperature': 25, 'Humidity': 75, 'ph': 4, 'Rainfall': 50 },
+                    'Rainy': { 'Temperature': 25, 'Humidity': 85, 'ph': 3.5, 'Rainfall': 250 }
+                },
+                'Tamil Nadu': {
+                    'Summer': { 'Temperature': 35, 'Humidity': 75, 'ph': 6.8, 'Rainfall': 100 },
+                    'Winter': { 'Temperature': 20, 'Humidity': 65, 'ph': 6.5, 'Rainfall': 50 },
+                    'Rainy': { 'Temperature': 25, 'Humidity': 85, 'ph': 6.5, 'Rainfall': 200 }
+                },
+                'Assam': {
+                    'Summer': { 'Temperature': 38, 'Humidity': 76, 'ph': 6.2, 'Rainfall': 200 },
+                    'Winter': { 'Temperature': 10, 'Humidity': 83, 'ph': 6, 'Rainfall': 180 },
+                    'Rainy': { 'Temperature': 26, 'Humidity': 88, 'ph': 5.5, 'Rainfall': 400 }
+                }
+            };
+    
+            // Set default values based on the selected state and season
+            document.getElementById('Temperature').value = defaultValues[state][season]['Temperature'];
+            document.getElementById('Humidity').value = defaultValues[state][season]['Humidity'];
+            document.getElementById('ph').value = defaultValues[state][season]['ph'];
+            document.getElementById('Rainfall').value = defaultValues[state][season]['Rainfall'];
+        }
+    </script>
+    
+    
+   
+</body>
+</html>
